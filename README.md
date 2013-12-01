@@ -1,4 +1,3 @@
-
 ### Arguable is a simple argument parser for [Haxe](http://haxe.org/)
 ---
 
@@ -8,6 +7,8 @@ Arguable parsers arguments in the form of :
 
 `--argument value`   
 `--argument`   
+
+**Note** the delimiter can be set by `arguable.ArgParser.delimiter = '-'` or similar;
 
 If arguments are passed incorrectly, for example `--argument value value` or `arg`,   
 the results will include the valid and invalid results in the set.
