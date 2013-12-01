@@ -37,8 +37,11 @@ If arguments are passed incorrectly, for example `--argument value value` the re
 ### How to run the test file
 	
 - Have haxe installed (obviously)
+- run `neko test/argparser.n`
+
+### To build the test file
 - run `haxe build.hxml`
-- run `neko argparser.n`
+
 
 ### That's it
 
