@@ -7,6 +7,16 @@ class Test {
 
         var results = ArgParser.parse( Sys.args() );
 
+        trace("Has any? " + results.any );
+        trace("If any, how many? " + results.length );        
+
+        var config_path = 'default_config.json';
+        if( results.has('config') ) {
+            config_path = results.get('config').value;
+        }
+
+        trace("config_path " + config_path);
+
         if(results.invalid.length > 0) {
         	trace("\tUnknown option/s " + results.invalid );
         	trace("\tValid option/s " + results.valid );

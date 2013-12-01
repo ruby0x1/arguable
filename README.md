@@ -47,8 +47,8 @@ the results will include the valid and invalid results in the set.
     trace("If any, how many? " + results.length );
 
     var config_path = 'default_config.json';
-    if( args.has('config') ) {
-        config_path = args.get('config').value;
+    if( results.has('config') ) {
+        config_path = results.get('config').value;
     }
 
     	// Handle any invalid arguments
@@ -71,10 +71,10 @@ the results will include the valid and invalid results in the set.
 ### How to run the test file
 	
 - Have haxe installed (obviously)
-- run `neko test/argparser.n`
+- run `neko test/TestArguable.n`
 
 ### To build the test file
-- run `haxe build.hxml`
+- run `haxe test/build.hxml`
 
 ### History
 1.0.1 - Added has/get/getAll api

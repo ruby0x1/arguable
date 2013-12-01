@@ -1,2 +1,3 @@
 -main Test
--neko argparser.n
+-neko TestArguable.n
+-cp ../
