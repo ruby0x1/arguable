@@ -6,8 +6,8 @@ I got tired of repeatedly parsing arguments, so here is a simple argument parsin
 
 Arguable parsers arguments in the form of :   
 
-`--argument value`
-`--argument`
+`--argument value`   
+`--argument`   
 
 If arguments are passed incorrectly, for example `--argument value value` the results will include the valid and invalid results for simpler parsing.
 
