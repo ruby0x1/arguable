@@ -13,6 +13,13 @@ If arguments are passed incorrectly, for example `--argument value value` the re
 
 ---
 
+### Install options
+
+`haxelib install arguable`   
+`haxelib git arguable https://github.com/underscorediscovery/arguable.git`    
+`haxelib local arguable /path/to/arguable-1.0.0.zip` (from releases)   
+
+
 ### Example usage
 
     var results = ArgParser.parse( Sys.args() );
