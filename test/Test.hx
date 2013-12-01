@@ -11,6 +11,7 @@ class Test {
         	trace("\tUnknown option/s " + results.invalid );
         	trace("\tValid option/s " + results.valid );
         } else {
+
         	trace("Args : ");
         	for(arg in results.valid) {
                 trace( '\t> ' + arg.name + ' : ' + arg.value );

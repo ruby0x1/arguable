@@ -8,8 +8,10 @@ typedef Arg = {
 };
 
 typedef ArgValues = {
+	var any : Bool;
+	var length : Int;
 	var invalid : Array<Arg>;
-	var valid : Array<Arg>;
+	var valid : Array<Arg>;	
 };
 
 class ArgParser {
@@ -25,6 +27,7 @@ class ArgParser {
 
 		if(args.length > 0) {
 			for(_arg in args) {
+
 				if(_arg.substr(0, delimeter.length) == delimeter) {
 					
 					if(!_stack.empty()) {
@@ -43,6 +46,7 @@ class ArgParser {
 
 					_stack.push( _arg.substr(ArgParser.delimeter.length, _arg.length - ArgParser.delimeter.length ) );
 				} else {
+
 					if(_stack.length == 2) {
 							//push invalid one 
 						_args_invalid.push({ name : _arg, value:'' });
@@ -52,6 +56,10 @@ class ArgParser {
 							name : _stack.pop()
 						});
 
+					} else if(_stack.length == 0) {
+							//push invalid one 
+						_args_invalid.push({ name : _arg, value:'' });
+						
 					} else {
 						_stack.push( _arg );
 					}					
@@ -73,7 +81,12 @@ class ArgParser {
 			}
 		} //existing items?
 
-		return { valid:_args_valid, invalid:_args_invalid };
+		return { 
+			valid : _args_valid, 
+			invalid : _args_invalid, 
+			length : _args_valid.length,
+			any : (_args_valid.length > 0) || (_args_invalid.length > 0)
+		};
 
 	} //parse
 }

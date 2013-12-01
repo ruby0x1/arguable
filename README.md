@@ -9,7 +9,7 @@ Arguable parsers arguments in the form of :
 `--argument value`   
 `--argument`   
 
-If arguments are passed incorrectly, for example `--argument value value` the results will include the valid and invalid results for simpler parsing.
+If arguments are passed incorrectly, for example `--argument value value` or `arg` the results will include the valid and invalid results for simpler parsing.
 
 ---
 
@@ -18,11 +18,14 @@ If arguments are passed incorrectly, for example `--argument value value` the re
 `haxelib install arguable`   
 `haxelib git arguable https://github.com/underscorediscovery/arguable.git`    
 `haxelib local arguable /path/to/arguable-1.0.0.zip` (from releases)   
-
+ 
 
 ### Example usage
 
     var results = ArgParser.parse( Sys.args() );
+
+    trace("Has any? " + results.any );
+    trace("If any, how many? " + results.length );
 
     	// Handle any invalid arguments
     if(results.invalid.length > 0) {
