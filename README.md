@@ -9,7 +9,26 @@ Arguable parsers arguments in the form of :
 `--argument value`   
 `--argument`   
 
-If arguments are passed incorrectly, for example `--argument value value` or `arg` the results will include the valid and invalid results for simpler parsing.
+If arguments are passed incorrectly, for example `--argument value value` or `arg`,   
+the results will include the valid and invalid results in the set.
+
+### Results API
+
+    var results = ArgParser.parse( Sys.args() );
+
+        results.any : Bool ;
+        results.length : Int;
+        results.invalid : Array<Arg>;
+        results.valid : Array<Arg>; 
+
+            //the below functions on operate on valid arguments
+            
+        results.has( arg:String ) : Bool;
+            //returns null if arg is not found
+        results.get( arg:String ) : Arg 
+            //returns [] if not found, or the list of args by the same name
+        results.getAll( arg:String ) : Array<Arg>
+
 
 ---
 
@@ -26,6 +45,11 @@ If arguments are passed incorrectly, for example `--argument value value` or `ar
 
     trace("Has any? " + results.any );
     trace("If any, how many? " + results.length );
+
+    var config_path = 'default_config.json';
+    if( args.has('config') ) {
+        config_path = args.get('config').value;
+    }
 
     	// Handle any invalid arguments
     if(results.invalid.length > 0) {
@@ -52,6 +76,9 @@ If arguments are passed incorrectly, for example `--argument value value` or `ar
 ### To build the test file
 - run `haxe build.hxml`
 
+### History
+1.0.1 - Added has/get/getAll api
+1.0.0 - Initial release
 
 ### That's it
 

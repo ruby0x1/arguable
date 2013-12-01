@@ -7,12 +7,42 @@ typedef Arg = {
 	var value : String;
 };
 
-typedef ArgValues = {
-	var any : Bool;
-	var length : Int;
-	var invalid : Array<Arg>;
-	var valid : Array<Arg>;	
-};
+class ArgValues {
+	public var any : Bool;
+	public var length : Int;
+	public var invalid : Array<Arg>;
+	public var valid : Array<Arg>;
+
+	public function new(_any:Bool, _length:Int, _valid:Array<Arg>, _invalid:Array<Arg> ) {
+		any = _any;
+		length = _length;
+		valid = _valid;
+		invalid = _invalid;
+	}
+
+	public function has(arg:String) : Bool {
+		return get(arg) != null;
+	}
+
+	public function get(arg:String) : Arg {
+		var _found = valid.filter(function(_arg:Arg) {
+			return _arg.name == arg;
+		});
+		if(_found.length > 0) {
+			return _found[0];
+		} else {
+			return null;
+		}
+	}
+	
+	public function getAll(arg:String) : Array<Arg> {
+		var _found = valid.filter(function(_arg:Arg) {
+			return _arg.name == arg;
+		});
+		return _found;
+	}
+
+}
 
 class ArgParser {
 
@@ -81,12 +111,10 @@ class ArgParser {
 			}
 		} //existing items?
 
-		return { 
-			valid : _args_valid, 
-			invalid : _args_invalid, 
-			length : _args_valid.length,
-			any : (_args_valid.length > 0) || (_args_invalid.length > 0)
-		};
+		return new ArgValues( (_args_valid.length > 0) || (_args_invalid.length > 0), 
+								_args_valid.length, 
+								_args_valid, 
+								_args_invalid );
 
 	} //parse
 }
