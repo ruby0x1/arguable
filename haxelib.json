@@ -1,0 +1,10 @@
+{
+  "name": "arguable",
+  "url" : "https://github.com/underscorediscovery/arguable/",
+  "license": "MIT",
+  "tags": ["cross"],
+  "description": "A simple --argument value parsing library for Haxe.",
+  "version": "1.0.0",
+  "releasenote": "Initial release!",
+  "contributors": ["underscorediscovery"]
+}
