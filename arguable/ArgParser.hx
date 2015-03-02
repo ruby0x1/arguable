@@ -74,7 +74,7 @@ class ArgParser {
 						}
 					}
 
-					_stack.push( _arg.substr(ArgParser.delimeter.length, _arg.length - ArgParser.delimeter.length ) );
+					_stack.push( _arg.substr(ArgParser.delimiter.length, _arg.length - ArgParser.delimiter.length ) );
 				} else {
 
 					if(_stack.length == 2) {
