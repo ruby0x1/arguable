@@ -46,7 +46,7 @@ class ArgValues {
 
 class ArgParser {
 
-	public static var delimeter : String = '--';
+	public static var delimiter : String = '--';
 	public static function parse( args:Array<String> ) : ArgValues {
 		
 		var _stack : Stack<String> = new Stack<String>();
@@ -58,7 +58,7 @@ class ArgParser {
 		if(args.length > 0) {
 			for(_arg in args) {
 
-				if(_arg.substr(0, delimeter.length) == delimeter) {
+				if(_arg.substr(0, delimiter.length) == delimiter) {
 					
 					if(!_stack.empty()) {
 						if(_stack.length == 2) {
