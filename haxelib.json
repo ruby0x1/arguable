@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["cross"],
   "description": "A simple --argument value parsing library for Haxe.",
-  "version": "1.0.0",
-  "releasenote": "Initial release!",
+  "version": "1.0.2",
+  "releasenote": "- Add note about argument delimiter in readme - Spelling corrections from delimeter -> delimiter by @robmeek",
   "contributors": ["underscorediscovery"]
 }
